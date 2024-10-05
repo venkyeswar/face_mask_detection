@@ -49,7 +49,7 @@ def predict_mask(image):
     prediction = model.predict(img_array)[0][0]
 
     # Determine the label and confidence
-    if prediction  >0.9:
+    if prediction > 0.8:
         return "Without Mask", float(prediction)
     else:
         return "With Mask", float(prediction)

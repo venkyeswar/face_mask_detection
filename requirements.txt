@@ -63,5 +63,6 @@ tzdata
 urllib3
 waitress
 Werkzeug
+whitenoise
 wrapt
 xgboost
