@@ -1,0 +1,7 @@
+services:
+  - type: web
+    name: face_mask_detection_appface_mask_detection_app
+    env: python
+    buildCommand: "pip install -r requirements.txt"
+    startCommand: "gunicorn face_mask_detection_app.wsgi:application --bind 0.0.0.0:$PORT"
+    autoDeploy: true
