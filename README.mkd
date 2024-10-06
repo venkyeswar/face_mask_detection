@@ -2,21 +2,7 @@
  
 ### Live Demo: [Face Mask Detection App](https://face-mask-detection-app-yrqi.onrender.com/)
 
-## Table of Contents
 
-- [Introduction](#introduction)
-- [Features](#features)
-- [Model Development](#model-development)
-- [Technologies Used](#technologies-used)
-- [Installation](#installation)
-- [Usage](#usage)
-- [Dataset](#dataset)
-- [Model Tuning with Keras Tuner](#model-tuning-with-keras-tuner)
-- [Deployment](#deployment)
-- [Results](#results)
-- [Future Enhancements](#future-enhancements)
-- [Contributing](#contributing)
-- [License](#license)
 
 ## Introduction
 
@@ -90,13 +76,3 @@ The application is deployed using Django and hosted on Render. The model is load
 
 The model was evaluated using a confusion matrix, demonstrating its effectiveness in distinguishing between the two classes.
 
-## Contributing
-
-Contributions are welcome! Please feel free to fork the repository and submit pull requests or report issues.
-
-### How to Contribute
-
-1. Fork the repository.
-2. Create a new branch for your feature.
-3. Make your changes and commit them.
-4. Push to the branch and submit a pull request.
