@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Face Mask Detection</title>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'mask_detector/styles.css' %}">
+    <script src="{% static 'mask_detector/scripts.js' %}" defer></script>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Face Mask Detection</h1>
+
+        <!-- Form to upload the image -->
+        <form method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            <div class="input-group">
+                <label for="image">Upload an Image</label>
+                <input type="file" name="image" required>
+            </div>
+            <button type="submit">Submit</button>
+        </form>
+
+        <!-- Display the result if available -->
+        {% if label and confidence %}
+            <div class="result">
+                <p><strong>Prediction:</strong> {{ label }}</p>
+          </div>
+
+            <!-- Display the uploaded image -->
+            <div class="uploaded-image">
+                <img src="{{ image_url }}" alt="Uploaded Image">
+            </div>
+        {% endif %}
+    </div>
+</body>
+</html>

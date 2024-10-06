@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render
 from .forms import UploadImageForm
 from .models import MaskImage
 from tensorflow.keras.preprocessing.image import img_to_array
@@ -19,24 +19,29 @@ def upload_image(request):
         form = UploadImageForm(request.POST, request.FILES)
         if form.is_valid():
             image_file = request.FILES['image']
-            # Perform your model prediction here
-            label, confidence = predict_mask(image_file)  # Call the predict function
+            # Perform model prediction
+            label, confidence = predict_mask(image_file)
 
-            # Save the image and prediction result in the database
+            # Save the image and prediction result in the database (if needed)
             mask_image = MaskImage(image=image_file, label=label, confidence=confidence)
             mask_image.save()
 
-            return redirect('result', pk=mask_image.pk)
+            # Prepare to display the uploaded image and prediction
+            return render(request, 'mask_detector/index.html', {
+                'form': form,
+                'label': label,
+                'confidence': confidence,
+                'image_url': mask_image.image.url
+            })
 
     else:
         form = UploadImageForm()
-    return render(request, 'mask_detector/upload.html', {'form': form})
-
-def result(request, pk):
-    mask_image = MaskImage.objects.get(pk=pk)
-    return render(request, 'mask_detector/result.html', {'mask_image': mask_image})
+    
+    # On GET request, just render the form without result
+    return render(request, 'mask_detector/index.html', {'form': form})
 
 def predict_mask(image):
+    # Open image, resize and preprocess it for the model
     image = Image.open(image)
     image = image.resize((128, 128))  # Resize the image for the model
     image = img_to_array(image)       # Convert image to array
@@ -51,5 +56,3 @@ def predict_mask(image):
         return "Without Mask", float(prediction)
     else:
         return "With Mask", float(prediction)
-
-
