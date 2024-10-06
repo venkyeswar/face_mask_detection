@@ -1,0 +1,102 @@
+# Face Mask Detection Web App
+ 
+### Live Demo: [Face Mask Detection App](https://face-mask-detection-app-yrqi.onrender.com/)
+
+## Table of Contents
+
+- [Introduction](#introduction)
+- [Features](#features)
+- [Model Development](#model-development)
+- [Technologies Used](#technologies-used)
+- [Installation](#installation)
+- [Usage](#usage)
+- [Dataset](#dataset)
+- [Model Tuning with Keras Tuner](#model-tuning-with-keras-tuner)
+- [Deployment](#deployment)
+- [Results](#results)
+- [Future Enhancements](#future-enhancements)
+- [Contributing](#contributing)
+- [License](#license)
+
+## Introduction
+
+Face Mask Detection has become a crucial task during the pandemic to ensure safety in public spaces. This web application is designed to detect whether individuals are wearing a mask or not. The model is built using Convolutional Neural Networks (CNNs) from scratch and fine-tuned using Keras Tuner. Achieving **96% accuracy**, this application is deployed using Django for real-time predictions.
+
+## Features
+
+- **Image Upload**: Users can upload an image to check for face mask compliance.
+- **Real-Time Predictions**: Instant results with visual indicators.
+- **High Accuracy**: CNN model with a remarkable accuracy of 96%.
+- **User-Friendly Interface**: A lightweight and intuitive web design.
+- **Live Deployment**: Accessible online for public use.
+
+## Model Development
+
+The Face Mask Detection model utilizes a CNN architecture tailored for image classification. The model is trained to categorize images into two classes:
+1. **With Mask**
+2. **Without Mask**
+
+The architecture includes convolutional layers for feature extraction, max pooling layers for dimensionality reduction, and dense layers for classification, with dropout layers to prevent overfitting.
+
+## Technologies Used
+
+- **Backend**: Python, Django
+- **Modeling**: Keras, TensorFlow
+- **Tuning**: Keras Tuner
+- **Frontend**: HTML, CSS, JavaScript
+- **Deployment**: Render
+
+## Installation
+
+### Prerequisites
+
+- Python 3.6 or higher
+- TensorFlow and Keras libraries
+- Django framework
+
+### Steps
+
+1. Clone the repository.
+2. Install the required dependencies from `requirements.txt`.
+3. Run the Django development server and visit `http://127.0.0.1:8000/` to view the app locally.
+
+## Usage
+
+1. Upload an image of a person.
+2. Submit the image for analysis.
+3. The app will display whether the person is wearing a mask or not, highlighted by dynamic colors:
+   - **Green** for "With Mask"
+   - **Red** for "Without Mask"
+
+## Dataset
+
+The model was trained on a curated Face Mask Detection dataset consisting of images of individuals both with and without masks, ensuring diversity and robustness in the training data.
+
+- **Training Data**: 8,000 images (4,000 with masks, 4,000 without masks)
+- **Augmentation**: Techniques like rotation and flipping were applied to enhance model performance.
+
+## Model Tuning with Keras Tuner
+
+Keras Tuner was utilized to optimize hyperparameters such as the number of layers, learning rates, and batch sizes, ultimately improving the model’s performance and accuracy.
+
+## Deployment
+
+The application is deployed using Django and hosted on Render. The model is loaded at startup to ensure quick response times for user predictions.
+
+## Results
+
+- **Training Accuracy**: 97%
+- **Test Accuracy**: 96%
+
+The model was evaluated using a confusion matrix, demonstrating its effectiveness in distinguishing between the two classes.
+
+## Contributing
+
+Contributions are welcome! Please feel free to fork the repository and submit pull requests or report issues.
+
+### How to Contribute
+
+1. Fork the repository.
+2. Create a new branch for your feature.
+3. Make your changes and commit them.
+4. Push to the branch and submit a pull request.
