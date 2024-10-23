@@ -11,7 +11,7 @@ from keras.models import load_model
 from django.conf import settings
 
 # Load the model once when the module is imported
-model_path = os.path.join(settings.BASE_DIR, 'predicting_model.h5')
+model_path = os.path.join(settings.BASE_DIR, 'model.h5')
 model = load_model(model_path)
 
 def upload_image(request):
